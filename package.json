@@ -7,7 +7,7 @@
     "url": "git+https://github.com/JerryG0228/wetube-clone.git"
   },
   "scripts": {
-    "dev": "nodemon --exec babel-node src/server.js"
+    "dev": "nodemon --exec babel-node src/init.js"
   },
   "keywords": [
     "nodeJS"
@@ -20,6 +20,7 @@
   "homepage": "https://github.com/JerryG0228/wetube-clone#readme",
   "dependencies": {
     "express": "^4.19.2",
+    "mongoose": "^8.4.4",
     "morgan": "^1.10.0",
     "pug": "^3.0.3"
   },
