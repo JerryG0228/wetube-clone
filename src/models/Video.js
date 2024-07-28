@@ -11,5 +11,9 @@ const videoSchema = new mongoose.Schema({
   },
 });
 
+videoSchema.static("formatHashtags", (hashtags) => {
+  return hashtags.split(",").map((word) => (word.trim().startsWith("#") ? word.trim() : `#${word.trim()}`));
+});
+
 const Video = mongoose.model("Video", videoSchema); // Create Model
 export default Video;

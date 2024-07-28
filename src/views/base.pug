@@ -5,21 +5,15 @@ html(lang="en")
     title #{pageTitle} | Wetube
   body 
     header
-      //- if fakeUser.loggedIn
-      //-   small Hello #{fakeUser.username}
-      //- nav 
-      //-   ul
-      //-     if fakeUser.loggedIn
-      //-       li 
-      //-         a(href="/login") Log out
-      //-     else
-      //-       li 
-      //-         a(href="/login") Login
       h1=pageTitle
       nav 
         ul 
           li 
+            a(href="/") Home
+          li 
             a(href="/videos/upload") Upload Video
-    main
+          li 
+            a(href="/search") Search
+    main  
       block content
   include partials/footer
