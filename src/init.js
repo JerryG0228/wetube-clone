@@ -1,5 +1,6 @@
 import "./db"; // DB 연결
 import "./models/Video";
+import "./models/User";
 import app from './server';
 
 
