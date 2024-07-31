@@ -21,16 +21,16 @@ app.use(express.urlencoded({ extended: true }));
 app.use(
   //세션 설정
   session({
-    secret: "Hello!", //세션 암호화에 사용되는 비밀 키
-    resave: true, //세션이 수정되지 않더라도 세션을 다시 저장할지 여부를 설정
-    saveUninitialized: true, // 초기화되지 않은 세션을 저장할지 여부를 설정
-    store: MongoStore.create({ mongoUrl: "mongodb://127.0.0.1:27017/wetube" }),
+    secret: process.env.COOKIE_SECRET, //세션 암호화에 사용되는 비밀 키
+    resave: false, //세션이 수정되지 않더라도 세션을 다시 저장할지 여부를 설정
+    saveUninitialized: false, // 초기화되지 않은 세션을 저장할지 여부를 설정
+    store: MongoStore.create({ mongoUrl: process.env.DB_URL }), // 세션 저장 위치를 db로 옮김
   })
 );
 
 app.use((req, res, next) => {
   req.sessionStore.all((error, sessions) => {
-    console.log(sessions);
+    console.log("[sessions]\n", sessions);
     next();
   });
 });

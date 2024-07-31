@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-mongoose.connect("mongodb://127.0.0.1:27017/wetube"); //mongosh(mongo shell 여는 명령어)를 통해 db url 가져온후 mongoose로 연결
+mongoose.connect(process.env.DB_URL); //mongosh(mongo shell 여는 명령어)를 통해 db url 가져온후 mongoose로 연결
 
 const db = mongoose.connection; //객체에 db 접근 권한 주기
 
