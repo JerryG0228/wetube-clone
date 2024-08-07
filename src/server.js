@@ -5,7 +5,7 @@ import MongoStore from "connect-mongo"; //서버가 종료되도 세션을 유�
 import rootRouter from "./routers/rootRouter";
 import userRouter from "./routers/userRouter";
 import videoRouter from "./routers/videoRouter";
-import { localsMiddleware } from "../middlewares";
+import { localsMiddleware } from "./middlewares";
 
 console.log(process.cwd()); //현재 작업 위치 출력
 
