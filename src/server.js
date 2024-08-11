@@ -5,6 +5,7 @@ import MongoStore from "connect-mongo"; //서버가 종료되도 세션을 유�
 import rootRouter from "./routers/rootRouter";
 import userRouter from "./routers/userRouter";
 import videoRouter from "./routers/videoRouter";
+import apiRouter from "./routers/apiRouter";
 import { localsMiddleware } from "./middlewares";
 
 console.log(process.cwd()); //현재 작업 위치 출력
@@ -41,5 +42,6 @@ app.use("/static", express.static("assets"));
 app.use("/", rootRouter);
 app.use("/users", userRouter);
 app.use("/videos", videoRouter);
+app.use("/api", apiRouter);
 
 export default app;
