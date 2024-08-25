@@ -2,6 +2,7 @@ import express from "express"; //express 모듈
 import morgan from "morgan"; //미들웨어 모듈
 import session from "express-session"; //세션 모듈
 import MongoStore from "connect-mongo"; //서버가 종료되도 세션을 유지시키기 위해 세션을 db에 저장하기 위한 모듈
+import flash from "express-flash";
 import rootRouter from "./routers/rootRouter";
 import userRouter from "./routers/userRouter";
 import videoRouter from "./routers/videoRouter";
@@ -17,7 +18,8 @@ app.set("view engine", "pug"); //view engine -> pug로 설정
 app.set("views", process.cwd() + "/src/views"); //렌더링 파일 위치를 변경
 app.use(logger); //모든 요청에 대해 morgan 로거 미들웨어를 사용
 //URL-encoded 데이터를 파싱하여 req.body에 추가하는 미들웨어를 사용. extended: true -> qs 라이브러리를 사용하여 쿼리 문자열을 파싱
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: true })); // 이걸 해줘야 서버가 form 데이터를 이해하고 req.body로 넣어버림
+app.use(express.json()); // 이걸 해줘야 서버에게 string을 보내도 이해하고 req.body에 넣어버림
 
 app.use(
   //세션 설정
@@ -36,6 +38,7 @@ app.use((req, res, next) => {
   });
 });
 
+app.use(flash());
 app.use(localsMiddleware);
 app.use("/uploads", express.static("uploads"));
 app.use("/static", express.static("assets"));
