@@ -8,11 +8,11 @@
   },
   "scripts": {
     "dev:server": "nodemon",
-    "build:server": "babel src -d build --ignore src/client",
+    "build:server": "babel src -d dist --ignore src/client",
     "dev:assets": "webpack --mode=development --watch",
     "build:assets": "webpack --mode=production",
     "build": "npm run build:server && npm run build:assets",
-    "start": "node build/init.js"
+    "start": "node dist/init.js"
   },
   "keywords": [
     "nodeJS"
