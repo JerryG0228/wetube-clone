@@ -19,17 +19,17 @@
   }
 }
 .video__comments {
-  display: flex;
-  flex-direction: column;
   max-width: 320px;
   width: 100%;
   margin: 0 auto;
   margin-top: 20px;
   .video__comment {
     padding: 10px;
-    border-radius: 99999px;
+    border-radius: 5vh;
     background-color: white;
     color: black;
     margin-bottom: 10px;
+    word-wrap: break-word; /* 단어가 길 때 줄바꿈 */
+    white-space: pre-wrap; /* 줄바꿈과 공백을 유지하면서 줄바꿈 적용 */
   }
 }
