@@ -22,7 +22,7 @@
   "bugs": {
     "url": "https://github.com/JerryG0228/wetube-clone/issues"
   },
-  "homepage": "https://github.com/JerryG0228/wetube-clone#readme",
+  "homepage": "https://github.com/JerryG0228/wetube-clone#readme", 
   "dependencies": {
     "@aws-sdk/client-s3": "^3.577.0",
     "@ffmpeg/core": "^0.12.6",
